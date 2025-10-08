@@ -1,0 +1,190 @@
+/* My Reboot Boilerplate */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+html {
+  height: 100%;
+  }
+body {
+    background: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    background-attachment: fixed;
+  }
+:root{
+    --darkText: hsl(229, 25%, 31%);
+    --scoreText: hsl(229, 64%, 46%);
+    --header: hsl(217, 16%, 45%);
+    --family: "Barlow Semi Condensed", Arial, sans-serif;
+  }
+.top-label[for="toggle"] {
+  font-size: 1.875rem;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  cursor: pointer;
+  }
+input[type="checkbox"] {
+  position: fixed;
+  top: -100px;
+  }
+#top-hidden-nav {
+  background-color: rgba(255,255,255, 0.4);
+  color: var(--black-100);
+  background-image:
+    linear-gradient(45deg, rgba(0,0,0, 33%),
+                    rgba(204,204,204, 66%));
+  width: 375px;
+  max-height: fit-content;
+  padding: 0 18px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: -370px;
+
+  transition: 0.6s all;
+  }
+input[type=checkbox]:checked + #top-hidden-nav {
+  right: 0.25px;
+  }
+ol>li, li {
+  text-align: justify;
+  list-style: none;
+  list-style-position: inside;
+  }
+hgroup {
+  align-content: center;
+  max-width: 75%;
+  }
+.header {
+  color: var(--header);
+  }
+.score {
+  color: var(--scoreText);
+  }
+.dark-text {
+  color: var(--darkText);
+  }
+.border {
+  border: solid 0.08em hsla(120, 100%, 100%, 75%);
+  border-radius: .1em;
+  padding: .2em .25em .15em;
+  }
+.font {
+  font-family: var(--family);
+  }
+.mini {
+  font-size: 1.25rem;
+  line-height: 1.15rem;
+  }
+.super {
+  font-size: 4.75rem;
+  line-height: 0.875;
+  }
+.bold {
+    font-weight: 600;
+  }
+.bolder {
+    font-weight: 700;
+  }
+.bg-header{
+  background: linear-gradient(to left top, hsl(217, 16%, 45%));
+  }
+.bg-pentagon {
+  background:
+    url(../assets/images/bg-pentagon.svg) no-repeat center;
+    background-attachment: fixed;
+  }
+.centered {
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  top: 12%;
+  bottom: 0;
+  z-index: 1200;
+}
+.scissors {
+  position: fixed;
+  top: 25%;
+  left: 46%;
+  background: radial-gradient(circle,hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  background-attachment: fixed;
+  }
+.paper {
+  position: fixed;
+  top: 40%;
+  left: 64%;
+  background: radial-gradient(circle,hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  background-attachment: fixed;
+  }
+.rock {
+  position: fixed;
+  top: 62%;
+  left: 58%;
+  background: radial-gradient(circle,hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  background-attachment: fixed;
+  }
+.lizard {
+  position: fixed;
+  top: 62%;
+  left: 35%;
+  background: radial-gradient(circle,hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  background-attachment: fixed;
+  }
+.spock {
+  position: fixed;
+  top: 40%;
+  left: 28%;
+  background: radial-gradient(circle,hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  background-attachment: fixed;
+  }
+.icon {
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  }
+.scoreboard {
+  width: 8rem;
+  height: 6.75rem;
+  }
+.logo {
+  border-radius: 50%;
+  max-height: 15%;
+  max-width: 15%;
+  }
+.inset {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  background-color: ghostwhite;
+}
+.modal-header {
+  border: none;
+  }
+#modal-close {
+  border: none;
+  background: transparent;
+  }
+#rules {
+  position: absolute;
+  right: 45px;
+  z-index: 12000;
+  }
+#staticRules{
+  top: 130px;
+  }
+#pentagon {
+  position: fixed;
+  top: 35%;
+  left: 35%;
+  }
+#results {
+  position: fixed;
+  bottom: 5%;
+  z-index: 1500;
+
+}

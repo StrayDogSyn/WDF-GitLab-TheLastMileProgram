@@ -1,0 +1,391 @@
+/* My Reboot Boilerplate */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+:root{
+    --darkText: hsl(229, 25%, 31%);
+    --scoreText: hsl(229, 64%, 46%);
+    --header: hsl(217, 16%, 45%);
+    --family: "Barlow Semi Condensed", Arial, sans-serif;
+}
+.top-label[for="toggle"] {
+  font-size: 1.875rem;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  position: fixed;
+  top: -100px;
+}
+#top-hidden-nav {
+  background-color: rgba(255,255,255, 0.4);
+  color: var(--black-100);
+  background-image:
+    linear-gradient(45deg, rgba(0,0,0, 33%),
+                    rgba(204,204,204, 66%));
+  width: 375px;
+  max-height: fit-content;
+  padding: 0 18px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: -370px;
+
+  transition: 0.6s all;
+}
+input[type=checkbox]:checked + #top-hidden-nav {
+  right: 0.25px;
+}
+ol>li, li {
+  text-align: justify;
+  list-style: none;
+  list-style-position: inside;
+}
+hgroup {
+  align-content: center;
+  max-width: 75%;
+}
+.header {
+  color: var(--header);
+}
+.score {
+  color: var(--scoreText);
+}
+.dark-text {
+  color: var(--darkText);
+}
+.border {
+  border: solid 0.08em hsla(120, 100%, 100%, 75%);
+  border-radius: .1em;
+  padding: .2em .25em .15em;
+}
+.font {
+  font-family: var(--family);
+}
+.mini {
+  font-size: 1.25rem;
+  line-height: 1.15rem;
+}
+.super {
+  font-size: 5rem;
+  line-height: 0.875;
+}
+.bold {
+    font-weight: 600;
+}
+.bolder {
+    font-weight: 700;
+}
+.bg-header{
+  background: linear-gradient(to left top, hsl(217, 16%, 45%));
+}
+.bg-pentagon {
+  background:
+    url(../assets/images/bg-pentagon.svg) no-repeat center;
+}
+.scissors {
+    background: radial-gradient(circle,hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+.paper {
+    background: radial-gradient(circle,hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+.rock {
+    background: radial-gradient(circle,hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.lizard {
+    background: radial-gradient(circle,hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+}
+.spock {
+    background: radial-gradient(circle,hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+}
+.coin {
+  max-width: fit-content;
+  max-height: fit-content;
+  border-radius: 50%;
+}
+.icon {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.scoreboard {
+  width: 7rem;
+  height: 6rem;
+}
+.logo {
+  border-radius: 50%;
+  max-height: 15%;
+  max-width: 15%;
+}
+#rules {
+  position: fixed;
+  right: 45px;
+  z-index: 12000;
+}
+#staticRules{
+  top: 150px;
+}
+#pentagon {
+  position: fixed;
+  left: 40%;
+  }
+#Scissors {
+  position: fixed;
+  top: 30%;
+  left: 49%;
+  } 
+#Paper {
+  position: fixed;
+  top: 47%;
+  left: 64%;
+  }
+#Spock {
+  position: fixed;
+  top: 47%;
+  left: 35%;
+  }
+#Rock {
+  position: fixed;
+  top: 72%;
+  left: 58%;
+  }
+#Lizard {
+  position: fixed;
+  top: 72%;
+  left: 42%;
+  }
+/* Landscape */
+@media screen and (min-width: 1525px){
+  #pentagon {
+    position: fixed;
+    left: 40%;
+    }
+  #Scissors {
+    position: fixed;
+    top: 30%;
+    left: 46%;
+    } 
+  #Paper {
+    position: fixed;
+    top: 46%;
+    left: 55%;
+    }
+  #Spock {
+    position: fixed;
+    top: 46%;
+    left: 37%;
+    }
+  #Rock {
+    position: fixed;
+    top: 72%;
+    left: 52%;
+    }
+  #Lizard {
+    position: fixed;
+    top: 72%;
+    left: 40%;
+    }
+  .scoreboard {
+    width: 7rem;
+    height: 8rem;
+    }
+  .super {
+    font-size: 4.25rem; 
+    }
+  .mini {  
+    font-size: 1.25rem;
+    }
+  }
+  /* Desktop */
+@media screen and (min-width: 1366px) and (max-width: 1525px){
+#pentagon {
+  position: fixed;
+  left: 40%;
+  }
+#Scissors {
+  position: fixed;
+  top: 31%;
+  left: 48%;
+  } 
+#Paper {
+  position: fixed;
+  top: 46%;
+  left: 60%;
+  }
+#Spock {
+  position: fixed;
+  top: 46%;
+  left: 37%;
+  }
+#Rock {
+  position: fixed;
+  top: 72%;
+  left: 56%;
+  }
+#Lizard {
+  position: fixed;
+  top: 72%;
+  left: 42%;
+  }
+.scoreboard {
+  width: 7rem;
+  height: 8rem;
+  }
+.super {
+  font-size: 4.25rem; 
+  }
+.mini {  
+  font-size: 1.25rem;
+  }
+}
+  /* Smaller Desktop */
+@media screen and (min-width: 576px) and (max-width: 725px){
+#pentagon {
+  position: fixed;
+  left: 30%;
+  }
+#Scissors {
+  position: fixed;
+  top: 31%;
+  left: 46%;
+  } 
+#Paper {
+  position: fixed;
+  top: 46%;
+  left: 68%;
+  }
+#Spock {
+  position: fixed;
+  top: 46%;
+  left: 25%;
+  }
+#Rock {
+  position: fixed;
+  top: 72%;
+  left: 58%;
+  }
+#Lizard {
+  position: fixed;
+  top: 72%;
+  left: 33%;
+  }
+.scoreboard {
+  width: 8rem;
+  height: 7rem;
+  }
+.super {
+  font-size: 3.75rem; 
+  }
+.mini {  
+  font-size: 1.25rem;
+  }
+}
+  /* Tablet */
+@media screen and (min-width: 376px) and (max-width: 575px) {
+#pentagon {
+  position: fixed;
+  left: 25%;
+  }
+#Scissors {
+  position: fixed;
+  top: 32%;
+  left: 45%;
+  } 
+#Paper {
+  position: fixed;
+  top: 48%;
+  left: 75%;
+  }
+#Spock {
+  position: fixed;
+  top: 48%;
+  left: 15%;
+  }
+#Rock {
+  position: fixed;
+  top: 70%;
+  left: 63%;
+  }
+#Lizard {
+  position: fixed;
+  top: 70%;
+  left: 26%;
+  }
+.scoreboard {
+  width: 8rem;
+  height: 7rem;
+}
+.super {
+  font-size: 3.75rem; 
+}
+.mini {  
+  font-size: 1.25rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 375px){
+#pentagon {
+  position: fixed;
+  top: 35%;
+  left: 3%;
+  }
+#Scissors {
+  position: fixed;
+  top: 30%;
+  left: 35%;
+  } 
+#Paper {
+  position: fixed;
+  top: 70%;
+  left: 62%;
+  }
+#Spock {
+  position: fixed;
+  top: 45%;
+  left: 1%;
+  }
+#Rock {
+  position: fixed;
+  top: 45%;
+  left: 72%;
+  }
+#Lizard {
+  position: fixed;
+  top: 70%;
+  left: 12%;
+  }
+#rules {
+  max-width: fit-content;
+  max-height: fit-content;
+  position: fixed;
+  right: -1.75%;
+  bottom: -2.5%;
+  z-index: 12000;
+  }
+.logo {
+  display: none;
+  max-height: 25%;
+  max-width: 25%;
+  }
+.scoreboard {
+  width: 4.5rem;
+  height: 5.5rem;
+  }
+.super {
+  font-size: 2.75rem;
+  }
+.mini {
+  font-size: 0.875rem;
+  }
+/* end @media */
+}

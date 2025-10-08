@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- // *comment CDN resources on/offline as needed* //-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Advanced Character Portfolio">
+  <meta name="author" content="E.Hunter">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/cdn/bootstrap.min.css">
+  <link href="https://cdn.tlm.cloud/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <title>Character Folio Editor</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="navbar-header justify-content-around mb-3">
+        <span id="navbarBrand" class="navbar-brand">
+          <i class="fab fa-d-and-d fa-2x"></i>
+          <span id="charNameMain" class="fs-2"> Character Name </span>
+          <i class="fa fa-user-cog fa-lg"></i>
+          <span id="charLevelMain" class="fs-2">Level </span>
+          <i class="fa fa-user-shield fa-lg"></i>
+          <span id="charClassMain" class="fs-2"> Class</span>
+        </span>
+      </div>
+      <!-- navbar-header -->
+      <button class="btn btn-outline-primary rounded-5" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasEditor" aria-controls="offcanvasEditor"><i class="fa fa-user-edit fa-lg"></i> Player
+        Folio Editor</button>
+      <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasEditor" aria-labelledby="offcanvasEditor">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-center" id="offcanvasEditorLabel"><i class="fa fa-edit fa-lg"></i>Edit
+            Character Page</h5>
+          <button id="saveCharacterEdit" type="button" class="btn btn-outline-success rounded-5" aria-label="Save"><i class="fa fa-save"></i>
+            Save</button>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <form name="characterEditorMainForm" id="characterEditFormMain" class="container-fluid">
+            <hr class="divider">
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterNameEditor" aria-describedby="characterName"
+                placeholder="Character Name" required>
+            </section><!-- section form-group characterNameEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-cog"></i>
+              <input class="form-control mb-1" type="text" id="characterLevelEditor" aria-describedby="characterLevel"
+                placeholder="Character Level" required>
+            </section><!-- section form-group characterLevelEditor-->
+            <hr class="divider">
+            <section class="form-group me-2">
+              <i class="fa fa-user-shield"></i>
+              <input class="form-control mb-1" type="text" id="characterClass01Editor"
+                aria-describedby="characterClass01" placeholder="Character Class01" required>
+              <input class="form-control mb-1" type="text" id="characterLevel01Editor"
+                aria-describedby="characterLevel01" placeholder="Character Class Level" required>
+            </section><!-- section form-group characterClassEditor01 -->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-shield"></i>
+              <input class="form-control mb-1" type="text" id="characterClass02Editor"
+                aria-describedby="characterClass02 " placeholder="Character Class02 ">
+              <input class="form-control mb-1" type="text" id="characterLevel02Editor"
+                aria-describedby="characterLevel02" placeholder="Character Class Level">
+            </section><!-- section form-group characterClassEditor02 -->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-shield"></i>
+              <input class="form-control mb-1" type="text" id="characterClass03Editor"
+                aria-describedby="characterClass03 " placeholder="Character Class03 ">
+              <input class="form-control mb-1" type="text" id="characterLevel03Editor"
+                aria-describedby="characterLevel03" placeholder="Character Class Level">
+            </section><!-- section form-group characterClassEditor03 -->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-shield"></i>
+              <input class="form-control mb-1" type="text" id="characterClass04Editor"
+                aria-describedby="characterClass04 " placeholder="Character Class04 ">
+              <input class="form-control mb-1" type="text" id="characterLevel04Editor"
+                aria-describedby="characterLevel04" placeholder="Character Class Level">
+            </section><!-- section form-group characterClassEditor04-->
+            <hr class="divider">
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterHomelandEditor" aria-describedby="characterHomeland"
+                placeholder="Character Homeland" required>
+            </section><!-- section form-group characterHomelandEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterRaceEditor" aria-describedby="characterRace"
+                placeholder="Character Race" required>
+            </section><!-- section form-group characterRaceEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterAncestryEditor" aria-describedby="characterAncestry"
+                placeholder="Character Ancestry">
+            </section><!-- section form-group characterAncestryEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterBackgroundEditor"
+                aria-describedby="characterBackground" placeholder="Character Background">
+            </section><!-- section form-group characterBackgroundEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterFactionEditor" aria-describedby="characterFaction"
+                placeholder="Character Faction">
+            </section><!-- section form-group characterFactionEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterAlignmentEditor"
+                aria-describedby="characterAlignment" placeholder="Character Alignment" required>
+            </section><!-- section form-group characterAlignmentEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterDeityEditor" aria-describedby="characterDeity"
+                placeholder="Character Deity / Religion">
+            </section><!-- section form-group characterDeityEditor-->
+            <section class="form-group mb-2">
+              <i class="fa fa-user-alt"></i>
+              <input class="form-control" type="text" id="characterLanguageEditor" aria-describedby="characterLanguage"
+                placeholder="Character Native Language">
+            </section><!-- section form-group characterLanguageEditor-->
+            <hr class="divider">
+            <small class="text-muted text-center"><i class="fa fa-user-plus fa-sm"></i> Vital Statistics</small>
+            <section class="form-group mb-2">
+              <input class="form-control" type="text" id="characterSizeEditor" aria-describedby="characterSize"
+                placeholder="Character Size" required>
+            </section><!-- section form-group characterSizeEditor-->
+            <section class="form-group mb-2">
+              <input class="form-control" type="text" id="characterHeightEditor" aria-describedby="characterHeight"
+                placeholder="Character Height">
+            </section><!-- section form-group characterHeightEditor-->
+            <section class="form-group mb-2">
+              <input class="form-control" type="text" id="characterWeightEditor" aria-describedby="characterWeight"
+                placeholder="Character Weight">
+            </section><!-- section form-group characterWeightEditor-->
+            <section class="form-group mb-2">
+              <input class="form-control" type="text" id="characterAgeEditor" aria-describedby="characterAge"
+                placeholder="Character Age">
+            </section><!-- section form-group characterAgeEditor-->
+            <section class="form-group mb-2">
+              <input class="form-control" type="text" id="characterGenderEditor" aria-describedby="characterGender"
+                placeholder="Character Gender">
+            </section><!-- section form-group characterGenderEditor-->
+            <section class="form-group mb-2">
+              <input class="form-control" type="text" id="characterEyesEditor" aria-describedby="characterEyes"
+                placeholder="Character Eyes">
+            </section><!-- section form-group characterEyesEditor-->
+            <section class="form-group mb-2">
+              <input class="form-control" type="text" id="characterHairEditor" aria-describedby="characterHair"
+                placeholder="Character Hair">
+            </section><!-- section form-group characterSizeEditor-->
+            <hr class="divider">
+          </form><!-- form container-fluid -->
+        </div><!-- offcanvas-body -->
+      </div><!-- offcanvas offcanvas-start -->
+      <button class="navbar-toggler rounded-5" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="fa fa-ellipsis-v"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="../index.html"><i class="fa fa-home fa-lg"></i>
+              Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-book-dead fa-lg"></i> Background Page</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="haversack.html" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-vest-patches fa-lg"></i>
+              Handy Haversack</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#"><i class="fa fa-layer-group fa-lg"></i> Equipped Item by
+                  Slot</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-vest fa-lg"></i> Combat Inventory</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-flask fa-lg"></i> Consumable Items</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="inventory.html"><i class="fa fa-clipboard-list fa-lg"></i>
+                  Main
+                  Inventory</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-archive fa-lg"></i> Storage</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-users-cog fa-lg"></i> Cohorts</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-dragon fa-lg"></i> Companions</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa fa-wallet fa-lg"></i> Wallet</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-scroll fa-lg"></i>
+              Spellbook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-vials fa-lg"></i>
+              Formulae</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-tools fa-lg"></i>
+              Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-mail-bulk fa-lg"></i>
+              Messages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-map-marked-alt fa-lg"></i>
+              Travel Log</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cheatsheet.html" tabindex="-1" aria-disabled="true"><i
+                class="fa fa-info-circle fa-lg"></i>
+              Basic Rules</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="diceBag.html" tabindex="-1" aria-disabled="true"><i
+                class="fa fa-dice-d20 fa-spin"></i> Dice Bag</a>
+          </li>
+        </ul>
+        <form name="searchbarNavbar" id="searchNavbar" class="d-flex">
+          <input id="searchNavbarInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit"><i class="fa fa-search fa-lg"></i></button>
+        </form>
+        <!--d-flex-->
+      </div>
+      <!-- collapse navbar-collapse -->
+    </div>
+    <!-- container-fluid -->
+  </nav>
+  <!-- navbar -->
+  <div class="container-fluid">
+    <div class="accordion  col-md-6" id="accordionCurrentCharacter">
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            <i class="fa fa-dragon fa-lg"></i> View Current Character
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+            <form name="characterInputMainForm" id="characterMainInput" class="container-fluid">
+              <hr class="divider">
+              <section id="characterName" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterNameEditor"
+                  aria-describedby="characterName" placeholder="Character Name" required>
+                </output>
+              </section><!-- section form-group characterNameEditor-->
+              <section id="" class="form-group mb-2">
+                <i class="fa fa-user-cog"></i>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterLevelEditor"
+                  aria-describedby="characterLevel" placeholder="Character Level" required>
+                </output>
+              </section><!-- section form-group characterLevelEditor-->
+              <hr class="divider">
+              <section id="characterClassLevel01" class="form-group me-2">
+                <i class="fa fa-user-shield"></i>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterClass01Editor"
+                  aria-describedby="characterClass01" placeholder="Character Class01" required></output>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterLevel01Editor"
+                  aria-describedby="characterLevel01" placeholder="Character Class Level" required></output>
+              </section><!-- section form-group characterClassEditor01 -->
+              <section id="characterClassLevel02" class="form-group mb-2">
+                <i class="fa fa-user-shield"></i>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterClass02Editor"
+                  aria-describedby="characterClass02 " placeholder="Character Class02 "></output>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterLevel02Editor"
+                  aria-describedby="characterLevel02" placeholder="Character Class Level"></output>
+              </section><!-- section form-group characterClassEditor02 -->
+              <section id="characterClassLevel03" class="form-group mb-2">
+                <i class="fa fa-user-shield"></i>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterClass03Editor"
+                  aria-describedby="characterClass03 " placeholder="Character Class03 "></output>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterLevel03Editor"
+                  aria-describedby="characterLevel03" placeholder="Character Class Level"></output>
+              </section><!-- section form-group characterClassEditor03 -->
+              <section id="characterClassLevel04" class="form-group mb-2">
+                <i class="fa fa-user-shield"></i>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterClass04Editor"
+                  aria-describedby="characterClass04 " placeholder="Character Class04 "></output>
+                <output readonly="true" class="form-control mb-1" type="text" id="characterLevel04Editor"
+                  aria-describedby="characterLevel04" placeholder="Character Class Level"></output>
+              </section><!-- section form-group characterClassEditor04-->
+              <hr class="divider">
+              <section id="characterHomeland" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterHomelandEditor"
+                  aria-describedby="characterHomeland" placeholder="Character Homeland" required></output>
+              </section><!-- section form-group characterHomelandEditor-->
+              <section id="characterRace" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterRaceEditor"
+                  aria-describedby="characterRace" placeholder="Character Race" required></output>
+              </section><!-- section form-group characterRaceEditor-->
+              <section id="characterAncestry" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterAncestryEditor"
+                  aria-describedby="characterAncestry" placeholder="Character Ancestry"></output>
+              </section><!-- section form-group characterAncestryEditor-->
+              <section id="characterBackground" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterBackgroundEditor"
+                  aria-describedby="characterBackground" placeholder="Character Background"></output>
+              </section><!-- section form-group characterBackgroundEditor-->
+              <section id="characterFaction" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterFactionEditor"
+                  aria-describedby="characterFaction" placeholder="Character Faction"></output>
+              </section><!-- section form-group characterFactionEditor-->
+              <section id="characterAlignment" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterAlignmentEditor"
+                  aria-describedby="characterAlignment" placeholder="Character Alignment" required></output>
+              </section><!-- section form-group characterAlignmentEditor-->
+              <section id="characterDeity" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterDeityEditor"
+                  aria-describedby="characterDeity" placeholder="Character Deity / Religion"></output>
+              </section><!-- section form-group characterDeityEditor-->
+              <section id="characterLanguage" class="form-group mb-2">
+                <i class="fa fa-user-alt"></i>
+                <output readonly="true" class="form-control" type="text" id="characterLanguageEditor"
+                  aria-describedby="characterLanguage" placeholder="Character Native Language"></output>
+              </section><!-- section form-group characterLanguageEditor-->
+              <hr class="divider">
+              <small class="text-muted text-center"><i class="fa fa-user-plus fa-sm"></i> Vital Statistics</small>
+              <section id="characterSize" class="form-group mb-2">
+                <output readonly="true" class="form-control" type="text" id="characterSizeEditor"
+                  aria-describedby="characterSize" placeholder="Character Size" required></output>
+              </section><!-- section form-group characterSizeEditor-->
+              <section id="characterHeight" class="form-group mb-2">
+                <output readonly="true" class="form-control" type="text" id="characterHeightEditor"
+                  aria-describedby="characterHeight" placeholder="Character Height"></output>
+              </section><!-- section form-group characterHeightEditor-->
+              <section id="characterWeight" class="form-group mb-2">
+                <output readonly="true" class="form-control" type="text" id="characterWeightEditor"
+                  aria-describedby="characterWeight" placeholder="Character Weight"></output>
+              </section><!-- section form-group characterWeightEditor-->
+              <section id="characterAge" class="form-group mb-2">
+                <output readonly="true" class="form-control" type="text" id="characterAgeEditor"
+                  aria-describedby="characterAge" placeholder="Character Age"></output>
+              </section><!-- section form-group characterAgeEditor-->
+              <section id="characterGender" class="form-group mb-2">
+                <output readonly="true" class="form-control" type="text" id="characterGenderEditor"
+                  aria-describedby="characterGender" placeholder="Character Gender"></output>
+              </section><!-- section form-group characterGenderEditor-->
+              <section id="characterEyes" class="form-group mb-2">
+                <output readonly="true" class="form-control" type="text" id="characterEyesEditor"
+                  aria-describedby="characterEyes" placeholder="Character Eyes"></output>
+              </section><!-- section form-group characterEyesEditor-->
+              <section id="characterHair" class="form-group mb-2">
+                <output readonly="true" class="form-control" type="text" id="characterHairEditor"
+                  aria-describedby="characterHair" placeholder="Character Hair"></output>
+              </section><!-- section form-group characterSizeEditor-->
+              <hr class="divider">
+            </form><!-- form container-fluid -->
+            <a href="#" class="nav-link nav-item">
+              <i class="fa fa-book-dead fa-lg"></i> <span> Background &amp; Ancestry Page</span>
+            </a>
+          </div><!-- accordion-body -->
+        </div><!-- accordion-collapse -->
+      </div><!-- accordion-item -->
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            <i class="fa fa-magic fa-lg"> </i> Spell Slots &amp; Spell-Like Abilities
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <!--accordion-item-->
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <i class="fa fa-vest-patches fa-lg"> </i> View Handy Haversack
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+          </div><!-- accordion-body-->
+        </div><!-- accordion-collapse -->
+      </div><!-- accordion-item -->
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            <i class="fa fa-hat-wizard fa-lg"> </i> Spellbook &amp; Formulae
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+            plugin adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <!--accordion-item-->
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <i class="fa fa-users-cog fa-lg"> </i> Ability Scores
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+            <table id="tableAbilityScores" class="table caption-top table-responsive text-center table-striped">
+              <caption class="text-center fw-bold">Ability Scores &amp; Modifiers</caption>
+              <thead>
+                <tr>
+                  <th scope="col"><i class="fa fa-chart-line fa-lg"></i></th>
+                  <th class="fs-6" scope="col">Score</th>
+                  <th class="fs-6" scope="col">Modifier</th>
+                  <th class="fs-6" scope="col">Temp Score</th>
+                  <th class="fs-6" scope="col">Temp Mod</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">STR</th>
+                  <td id="scoreStr"></td>
+                  <td id="modifierStr"></td>
+                  <td id="tempScoreStr"></td>
+                  <td id="tempModStr"></td>
+                </tr>
+                <tr>
+                  <th scope="row">DEX</th>
+                  <td id="scoreDex"></td>
+                  <td id="modifierDex"></td>
+                  <td id="tempScoreDex"></td>
+                  <td id="tempModDex"></td>
+                </tr>
+                <tr>
+                  <th scope="row">CON</th>
+                  <td id="scoreCon"></td>
+                  <td id="modifierCon"></td>
+                  <td id="tempScoreCon"></td>
+                  <td id="tempModCon"></td>
+                </tr>
+                <tr>
+                  <th scope="row">INT</th>
+                  <td id="scoreInt"></td>
+                  <td id="modifierInt"></td>
+                  <td id="tempScoreInt"></td>
+                  <td id="tempModInt"></td>
+                </tr>
+                <tr>
+                  <th scope="row">WIS</th>
+                  <td id="scoreWis"></td>
+                  <td id="modifierWis"></td>
+                  <td id="tempScoreWis"></td>
+                  <td id="tempModWis"></td>
+                </tr>
+                <tr>
+                  <th scope="row">CHA</th>
+                  <td id="scoreCha"></td>
+                  <td id="modifierCha"></td>
+                  <td id="tempScoreCha"></td>
+                  <td id="tempModCha"></td>
+                </tr>
+              </tbody>
+            </table><!-- table-responsive -->
+            <a href="abilityScores.html" class="nav-link nav-item">
+              <i class="fa  fa-table fa-lg"></i> <span> View / Edit Table</span>
+            </a>
+          </div><!-- accordion-body -->
+        </div><!-- accordion-collapse -->
+      </div><!-- accordion-item -->
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <i class="fa fa-tools fa-lg"> </i> Skills List
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingEight">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+            <i class="fa fa-link fa-lg"> </i> Companions
+          </button>
+        </h2>
+        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <!--accordion-item-->
+      <!--accordion-item-->
+      <div class="accordion-item mb-4">
+        <h2 class="accordion-header" id="headingSeven">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+            <i class="fa fa-map-signs fa-lg"> </i> Travel Log
+          </button>
+        </h2>
+        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionCurrentCharacter">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <!--accordion-item-->
+      <div class="card p-3 mb-2 bg-transparent text-dark">
+        <div class="card-header">
+          <i class="fa fa-medal fa-lg"></i>
+          <span id="currentLevelTracker">Current Character Level</span>
+        </div>
+        <!--card-header-->
+        <div class="card-body">
+          <h5 class="card-title"> To Next Level</h5>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65"
+              aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <!--progress-bar-->
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalXP">
+            <i class="fa fa-level-up-alt"></i> Award XP
+          </button>
+          <!-- Button trigger modal -->
+        </div>
+        <!--card-body-->
+        <div class="modal fade" id="modalXP" tabindex="-1" aria-labelledby="labelModalXP" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content text-center">
+              <div class="modal-header  text-center">
+                <h5 class="modal-title" id="labelModalXP"><i class="fa fa-medal fa-lg"></i></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <input id="inputEnterXP" class="fs-2" type="number" required="true" min="0" step="1">
+              </div>
+              <div class="modal-footer justify-content-evenly">
+                <button id="btnAwardXP" type="button" class="btn btn-outline-success rounded-5"><i
+                    class="fa fa-check-circle"></i></button>
+                <button id="btnSaveXP" type="button" class="btn btn-outline-warning rounded-5"><i
+                    class="fa fa-save"></i> Save</button>
+                <button id="btnCloseXP" type="button" class="btn btn-outline-danger rounded-5" data-bs-dismiss="modal">
+                  Close</button>
+              </div>
+              <!--modal-footer-->
+            </div>
+            <!--modal-content-->
+          </div>
+          <!--modal-dialog-->
+        </div>
+        <!--modal-fade-->
+      </div>
+      <!--card-->
+    </div>
+    <!--accordion-->
+  </div>
+  <!--container-fluid-->
+  <!-- // Offline CDN Resources // -->
+  <script src="../../../../assets/cdn/jquery.min.js"></script>
+  <script src="../../../../assets/cdn/jquery-ui.min.js"></script>
+  <script src="../../../../assets/cdn/fontawesome.js"></script>
+  <script src="../../../../assets/cdn/bootstrap.min.js"></script>
+<div name="scriptHolder">
+  <!-- // CDN Links // -->
+  <!--<script src="https://cdn.tlm.cloud/jquery/3.5.1/jquery-3.5.1.min.js"
+        integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+        crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdn.tlm.cloud/jqueryui/1.12.1/jquery-ui.min.js"
+        integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu"
+        crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdn.tlm.cloud/fontawesome/5.15.2/js/all.js"
+        integrity="sha384-Jd/Up/tJFZ6kyecb3GfFg99ZoDK4yW/Ztv18Stal8RcntwpbERxWVyaWSpEzaaPf"
+        crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdn.tlm.cloud/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>-->
+
+<!-- The following scripts link to the seperate script files containing the various JavaScript functions required by the Knucklebones Application-->
+  <script src="../js/jsonExperienceTracker.js"></script>
+  <script src="../js/jsonCharacterOne.js"></script>
+  <script src="../js/jsonInventorySheet.js"></script>
+  <script src="../js/jsonAbilityScores.js"></script>
+  <script src="../js/pathfinderDice.js"></script>
+  <script src="../js/scripts.js">
+    $(document).ready(function () {
+
+    }); // end ready
+  </script>
+</div>
+<!--end scriptHolder-->
+
+</body>
+
+</html>

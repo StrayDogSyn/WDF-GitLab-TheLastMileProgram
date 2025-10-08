@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Advanced Character Portfolio">
+    <meta name="author" content="E.Hunter">
+     <link rel="stylesheet" type="text/css" href="../../../../assets/cdn/bootstrap.min.css">
+    <link href="https://cdn.tlm.cloud/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <title>Ability Scores & Modifiers</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fab fa-d-and-d fa-2x"></i>
+                <span id="charName" class="fs-2"> Character Name </span>
+                <i class="fa fa-star-half fa-lg"></i>
+                <span id="charLevel" class="fs-2">Level </span>
+                <i class="fa fa-shield-alt fa-lg"></i>
+                <span id="charClass" class="fs-2"> Class</span>
+            </a>
+            <!--navbar-brand-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-ellipsis-v"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="../index.html" tabindex="-1" aria-current="page"><i
+                            class="fa fa-home fa-lg"></i> Home</a>
+                    <a class="nav-link" href="characterMain.html" tabindex="-2" aria-disabled="true"><i
+                            class="fa fa-book"></i>Folio</a>
+                    <a class="nav-link" href="#" tabindex="-3" aria-disabled="true"><i
+                            class="fa fa-scroll"></i>Campaign</a>
+                    <a class="nav-link" href="inventory.html" tabindex="-4" aria-disabled="true"><i
+                            class="fa fa-vest"></i>Inventory</a>
+                    <a class="nav-link" href="diceBag.html" tabindex="-1" aria-disabled="true"><i
+                            class="fa fa-dice-d20 fa-spin"></i> Dice Bag</a>
+                </div>
+                <!--navbar-nav-->
+            </div>
+            <!--navbar-collapse-->
+        </div>
+        <!--container-fluid-->
+    </nav>
+    <!--navbar-->
+    <div class="container-fluid mb-5">
+      <table id="tableAbilityScores" class="table caption-top table-responsive text-center table-striped table-sm">
+        <caption class="text-center fw-bold">Ability Scores &amp; Modifiers</caption>
+        <thead>
+          <tr>
+            <th scope="col"><i class="fa fa-chart-line fa-lg"></i></th>
+            <th class="fs-6" scope="col">Score</th>
+            <th class="fs-6" scope="col">Modifier</th>
+            <th class="fs-6" scope="col">Temp Score</th>
+            <th class="fs-6" scope="col">Temp Mod</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr>
+            <th scope="row">STR</th>
+            <td id="scoreStr">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="modifierStr">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempScoreStr">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempModStr">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">DEX</th>
+            <td id="scoreDex">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="modifierDex">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempScoreDex">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempModDex">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">CON</th>
+            <td id="scoreCon">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="modifierCon">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempScoreCon">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempModCon">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">INT</th>
+            <td id="scoreInt">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="modifierInt">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempScoreInt">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempModInt">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">WIS</th>
+            <td id="scoreWis">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="modifierWis">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempScoreWis">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempModWis">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">CHA</th>
+            <td id="scoreCha">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="modifierCha">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempScoreCha">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+            <td id="tempModCha">
+              <input type="number" min="0" max="999" step="1" id="" class="" name="" required>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        <div class="table-footer">
+          <button class="btn btn-success btn-outline rounded-5" type="submit">
+            <i class="fa fa-sd-card fa-lg"></i> Save
+          </button>
+        </div>
+      <!-- table-responsive -->
+    </div>
+    <!--container-fluid-->
+    <div class="container-fluid">
+<div class="modal fade" id="characterCreatorModal" aria-hidden="true" aria-labelledby="characterCreatorModalLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="characterCreatorModalLabel">Modal 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Show a second modal and hide this one with the button below.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-success rounded-4 me-2"><i class="fa fa-save fa-lg"></i> Save New Character</button>
+        <button class="btn btn-primary rounded-4" data-bs-target="#characterCreatorModal2" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fa fa-dice-d20 fa-lg fa-spin"></i> Roll New Statistics</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="characterCreatorModal2" aria-hidden="true" aria-labelledby="characterCreatorModalLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="characterCreatorModalLabel2">Modal 2</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Hide this modal and show the first with the button below.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#characterCreatorModal" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-primary rounded-4" data-bs-toggle="modal" href="#characterCreatorModal" role="button"><i class="fa fa-dice-d20 fa-lg fa-spin"></i> Roll New Character</a>
+</div>
+  <!--container-fluid-->
+    <!-- Offline CDN Resources -->
+     <script src="../../../../assets/cdn/jquery.min.js"></script>
+    <script src="../../../../assets/cdn/jquery-ui.min.js"></script>
+    <script src="../../../../assets/cdn/fontawesome.js"></script>
+    <script src="../../../../assets/cdn/bootstrap.min.js"></script>
+    <script src="https://cdn.tlm.cloud/jquery/3.5.1/jquery-3.5.1.min.js"
+        integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tlm.cloud/jqueryui/1.12.1/jquery-ui.min.js"
+        integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tlm.cloud/fontawesome/5.15.2/js/all.js"
+        integrity="sha384-Jd/Up/tJFZ6kyecb3GfFg99ZoDK4yW/Ztv18Stal8RcntwpbERxWVyaWSpEzaaPf"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tlm.cloud/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="../js/scripts.js">
+        $(document).ready(function () {
+
+        }); // end ready
+    </script>
+</body>
+
+</html>

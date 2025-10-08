@@ -1,0 +1,27 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background:
+    url(../../../assets/svg/bg-pattern-bottom-desktop.svg) bottom right no-repeat fixed,
+    url(../../../assets/svg/bg-pattern-top-desktop.svg) left top no-repeat fixed;
+}
+#page-links {
+  overflow: auto;
+}
+header,
+h6 {
+  font-family: Papyrus, Herculanum, "Party LET", "Curlz MT", Harrington, fantasy;
+}
+.gradient {
+  background: #333;
+  background-image:
+    linear-gradient(45deg, rgba(0,0,0, 33%),
+                    rgba(204,204,204, 66%));
+  color: #c00;
+
+}
+.logo {
+  max-width: 30%;
+}

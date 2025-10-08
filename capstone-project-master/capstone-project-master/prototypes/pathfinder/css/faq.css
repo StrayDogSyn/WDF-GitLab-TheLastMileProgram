@@ -1,0 +1,5 @@
+
+.accordion-button:hover {
+  color: green;
+  text-decoration: underline;
+}

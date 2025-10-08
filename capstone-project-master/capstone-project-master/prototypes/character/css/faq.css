@@ -1,0 +1,8 @@
+
+.accordion-button:hover {
+  color: green;
+  text-decoration: underline;
+}
+#offcanvasBottom {
+  height: 75%;
+}

@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background:
+    url(../assets/images/bg-pattern-bottom-desktop.svg) bottom right no-repeat fixed,
+    url(../assets/images/bg-pattern-top-desktop.svg) left top no-repeat fixed;
+}
+select {
+  cursor: pointer;
+}
+
+:root {
+  /* Color Palette */
+  --compGold: #b8860b;
+  --compRed: #b22222;
+  --compWhite: #fdf5e6;
+  --compYellow: #eee8aa;
+  --compBlack: rgb(43, 11, 14);
+  /* Typography */
+  --times: Times, "Times New Roman", Georgia, serif;
+  --san-serif: Geneva, Tahoma, Helvetica, Arial, sans-serif;
+  --serif: "Hoefler Text", Baskerville, Lucida, "Palatino Linotype", "URW Palladio", serif;
+}
+
+#answer1:hover,
+#answer2:hover,
+#answer3:hover,
+#answer4:hover {
+  cursor: pointer;
+  background: silver;
+  color: hsl(120, 100%, 0%);
+  text-decoration: underline;
+}
+.logo {
+  border-radius: 50%;
+  max-height: 15%;
+  max-width: 15%;
+}
+.text-shadow {
+  text-shadow: 2px 5px 4px hsl(120, 0%, 50%);
+}
+.box-shadow {
+  box-shadow: 4px 4px 16px hsl(120, 100%, 0%);
+}
+.Times {
+  font-family: var(--times);
+}
+.Sans {
+  font-family: var(--san-serif);
+}
+.Serif {
+  font-family: var(--serif);
+}
