@@ -3,8 +3,7 @@
 
 ![Last Commit](https://img.shields.io/github/last-commit/StrayDogSyn/WDF-GitLab-TheLastMileProgram?style=for-the-badge)
 ![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg?style=for-the-badge)
-![Status: In Progress](https://img.shields.io/badge/status-active-brightgreen?style=for-the-badge)
-![Micro-Interactions](https://img.shields.io/badge/micro--interactions-premium-yellow?style=for-the-badge)
+![Status: Migrated](https://img.shields.io/badge/status-active-brightgreen?style=for-the-badge)
 
 <p align="center">
   <img src="capstone-project-master/capstone-project-master/assets/logos/stray-gear.png" alt="Project Logo" width="120"/>
