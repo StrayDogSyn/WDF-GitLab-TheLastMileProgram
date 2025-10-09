@@ -24,6 +24,39 @@
       50% { opacity: 0.5; }
     }
     
+    /* Icicle drip animation */
+    @keyframes drip {
+      0%, 90% { transform: scaleY(1); }
+      95% { transform: scaleY(1.15); }
+      100% { transform: scaleY(1); }
+    }
+    
+    /* Water drop fall animation */
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(40px); opacity: 0; }
+    }
+    
+    /* Fire flame flicker */
+    @keyframes flame-flicker {
+      0%, 100% { 
+        transform: scaleY(1) scaleX(1);
+        opacity: 0.7;
+      }
+      25% { 
+        transform: scaleY(1.1) scaleX(0.95);
+        opacity: 0.85;
+      }
+      50% { 
+        transform: scaleY(0.95) scaleX(1.05);
+        opacity: 0.6;
+      }
+      75% { 
+        transform: scaleY(1.05) scaleX(0.9);
+        opacity: 0.8;
+      }
+    }
+    
     .flicker {
       animation: flicker 1.5s ease-in-out infinite;
     }
@@ -44,6 +77,19 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+    
+    /* 3D Card Tilt Effect */
+    .tilt-card {
+      transition: transform 0.1s ease-out;
+      transform-style: preserve-3d;
+    }
+    
+    .tilt-card:hover {
+      transform: perspective(1000px) 
+                 rotateX(var(--rotate-x, 0deg)) 
+                 rotateY(var(--rotate-y, 0deg)) 
+                 scale3d(1.02, 1.02, 1.02);
     }
     
     html {
@@ -109,7 +155,7 @@
       </div>
 
       <!-- Featured Project - CompTIA Quiz -->
-      <div class="glassmorphic rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-cyan-500/50 transition-all duration-500 hover:scale-[1.02]">
+      <div class="glassmorphic rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-cyan-500/50 transition-all duration-500 tilt-card" id="featuredCard">
         <div class="flex flex-col md:flex-row items-start justify-between mb-6 gap-4">
           <div>
             <span class="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold mb-4">
@@ -373,29 +419,46 @@
       // Update nav ice effect
       nav.style.boxShadow = `0 ${Math.max(8 - scrollProgress * 8, 0)}px ${Math.max(32 - scrollProgress * 32, 0)}px rgba(150, 200, 255, ${0.3 - scrollProgress * 0.3})`;
       
-      // Update icicles
+      // Update icicles with drip animation
       icicles.innerHTML = '';
       for (let i = 0; i < 20; i++) {
         const icicle = document.createElement('div');
-        icicle.className = 'absolute w-1 bg-gradient-to-b from-cyan-300/50 to-transparent transition-all duration-300';
+        icicle.className = 'absolute bg-gradient-to-b from-cyan-300/50 to-cyan-500/20 rounded-b-full transition-all duration-300';
         icicle.style.left = `${i * 5}%`;
+        icicle.style.width = '2px';
         icicle.style.height = `${Math.max(20 - scrollProgress * 20, 0)}px`;
         icicle.style.opacity = Math.max(0.5 - scrollProgress * 0.5, 0);
+        icicle.style.animation = `drip ${2 + Math.random()}s ease-in-out infinite`;
+        icicle.style.animationDelay = `${i * 0.1}s`;
         icicles.appendChild(icicle);
+        
+        // Add water drops when melting (after 20% scroll)
+        if (scrollProgress > 0.2) {
+          const drop = document.createElement('div');
+          drop.className = 'absolute w-1 h-1 bg-cyan-400 rounded-full';
+          drop.style.left = `${i * 5}%`;
+          drop.style.bottom = '-15px';
+          drop.style.animation = `fall ${1.5 + Math.random()}s linear infinite`;
+          drop.style.animationDelay = `${i * 0.15}s`;
+          drop.style.opacity = Math.min(scrollProgress * 0.8, 0.6);
+          icicles.appendChild(drop);
+        }
       }
       
       // Update footer fire effect
       footer.style.boxShadow = `0 ${-8 * scrollProgress}px ${32 * scrollProgress}px rgba(255, 100, 50, ${0.3 * scrollProgress})`;
       
-      // Update flames
+      // Update flames with enhanced flicker animation
       flames.innerHTML = '';
       for (let i = 0; i < 20; i++) {
         const flame = document.createElement('div');
-        flame.className = 'absolute w-1 bg-gradient-to-b from-orange-500/50 to-transparent transition-all duration-300';
+        flame.className = 'absolute bg-gradient-to-b from-orange-500/60 via-red-500/40 to-transparent rounded-t-full transition-all duration-300';
         flame.style.left = `${i * 5}%`;
+        flame.style.width = `${2 + Math.random() * 2}px`;
         flame.style.height = `${20 * scrollProgress}px`;
-        flame.style.opacity = scrollProgress * 0.7;
-        flame.style.animation = `flicker ${1 + Math.random()}s ease-in-out infinite`;
+        flame.style.opacity = scrollProgress * 0.8;
+        flame.style.animation = `flame-flicker ${0.8 + Math.random() * 0.6}s ease-in-out infinite`;
+        flame.style.animationDelay = `${i * 0.05}s`;
         flames.appendChild(flame);
       }
     }
@@ -427,6 +490,12 @@
       `;
       
       lucide.createIcons();
+      
+      // Re-add tilt-card class to the carousel card
+      card.classList.add('tilt-card');
+      
+      // Re-initialize tilt effect for the carousel card
+      init3DTilt();
     }
 
     function renderIndicators() {
@@ -463,6 +532,39 @@
     renderProject();
     renderIndicators();
     updateEffects();
+
+    // ===== 3D CARD TILT EFFECT =====
+    function init3DTilt() {
+      const tiltCards = document.querySelectorAll('.tilt-card');
+      
+      tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // Calculate rotation (max 15 degrees)
+          const rotateX = ((y - centerY) / centerY) * -10;
+          const rotateY = ((x - centerX) / centerX) * 10;
+          
+          card.style.setProperty('--rotate-x', `${rotateX}deg`);
+          card.style.setProperty('--rotate-y', `${rotateY}deg`);
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--rotate-x', '0deg');
+          card.style.setProperty('--rotate-y', '0deg');
+        });
+      });
+    }
+
+    // Initialize 3D tilt after a short delay to ensure all cards are rendered
+    setTimeout(() => {
+      init3DTilt();
+    }, 500);
   </script>
 </body>
 </html>
