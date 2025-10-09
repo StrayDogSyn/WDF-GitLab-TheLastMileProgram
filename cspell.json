@@ -8,7 +8,9 @@
     "jQuery",
     "tlm",
     "GitLab",
-    "Knucklebones"
+    "Knucklebones",
+    "glassmorphic",
+    "thelastmile"
   ],
   "ignorePaths": [
     "node_modules",
