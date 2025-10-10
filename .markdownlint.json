@@ -10,9 +10,12 @@
       "br",
       "div",
       "span",
-      "a"
+      "a",
+      "strong",
+      "small"
     ]
   },
   "MD013": false,
-  "MD041": false
+  "MD041": false,
+  "MD034": false
 }
