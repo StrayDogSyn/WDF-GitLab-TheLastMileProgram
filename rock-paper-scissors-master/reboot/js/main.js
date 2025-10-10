@@ -253,7 +253,13 @@ function playGame(value) {
   
   // Event listeners
   easterEggBtn.addEventListener('click', toggleTooltip);
-  dismissTooltipBtn.addEventListener('click', closeTooltip);
+  
+  if (dismissTooltipBtn) {
+    dismissTooltipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeTooltip();
+    });
+  }
   
   // Close tooltip when clicking outside
   document.addEventListener('click', (e) => {
