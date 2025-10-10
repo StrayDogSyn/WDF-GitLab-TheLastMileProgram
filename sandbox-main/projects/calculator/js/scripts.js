@@ -1,6 +1,7 @@
 let runningTotal = 0;
 let buffer = "0";
 let previousOperator = null;
+let waitingForNewNumber = false;
 const screen = document.querySelector(".screen");
 
 function buttonClick(value) {
@@ -20,7 +21,10 @@ function handleNumber(value) {
     }
   }
   
-  if (buffer === "0") {
+  if (waitingForNewNumber) {
+    buffer = value;
+    waitingForNewNumber = false;
+  } else if (buffer === "0") {
     buffer = value;
   } else {
     buffer += value;
@@ -41,8 +45,7 @@ function handleMath(value) {
   }
 
   previousOperator = value;
-
-  buffer = "0";
+  waitingForNewNumber = true;
 }
 
 function flushOperation(floatBuffer) {
@@ -80,6 +83,7 @@ function handleSymbol(value) {
       buffer = "0";
       runningTotal = 0;
       previousOperator = null;
+      waitingForNewNumber = false;
       break;
     case "=":
       if (previousOperator === null) {
@@ -90,6 +94,7 @@ function handleSymbol(value) {
       previousOperator = null;
       buffer = "" + runningTotal;
       runningTotal = 0;
+      waitingForNewNumber = true;
       break;
     case "←":
       if (buffer.length === 1) {
