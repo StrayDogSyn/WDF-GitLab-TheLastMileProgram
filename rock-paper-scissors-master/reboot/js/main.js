@@ -226,7 +226,6 @@ function playGame(value) {
   
   const easterEggBtn = document.getElementById('easter-egg-btn');
   const easterEggTooltip = document.getElementById('easter-egg-tooltip');
-  const closeTooltipBtn = document.getElementById('close-tooltip');
   const dismissTooltipBtn = document.getElementById('dismiss-tooltip');
   
   // Check if user has already seen the message
@@ -254,7 +253,6 @@ function playGame(value) {
   
   // Event listeners
   easterEggBtn.addEventListener('click', toggleTooltip);
-  closeTooltipBtn.addEventListener('click', closeTooltip);
   dismissTooltipBtn.addEventListener('click', closeTooltip);
   
   // Close tooltip when clicking outside
