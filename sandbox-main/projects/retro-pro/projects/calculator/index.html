@@ -1,0 +1,75 @@
+<!-- Code adapted from following the Frontend Masters tutorial provided @ https://canvas.tlm.cloud -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../../../assets/cdn/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/styles.css">
+  <title>Calculator v.1</title>
+</head>
+<!--Create a Calculator Project-->
+
+<body>
+  <div class="container-fluid">
+    <header>
+      <a href="../../index.html">
+        <img class="img-fluid thumbnail" src="../../assets/images/stray-gear.png" style="width: 20%; border-radius: 15px;">
+        </a>
+        <a href="../../index.html"><button type="button" class="btn btn-outline-success btn-lg initialism"><i class="fa fa-home fa-lg"></i> Home</button>
+        </a>
+    </header>
+
+    <div class="container-fluid">
+      <div class="wrapper">
+        <section class="screen">
+          0
+        </section>
+        <!-- 5 rows w/ 4 columns-->
+        <section class="calc-buttons">
+          <div class="calc-button-row">
+            <button class="calc-button double">C</button>
+            <button class="calc-button">&larr;</button>
+            <button class="calc-button function">&divide;</button>
+          </div>
+          <div class="calc-button-row">
+            <button class="calc-button">7</button>
+            <button class="calc-button">8</button>
+            <button class="calc-button">9</button>
+            <button class="calc-button function">&times;</button>
+          </div>
+          <div class="calc-button-row">
+            <button class="calc-button">4</button>
+            <button class="calc-button">5</button>
+            <button class="calc-button">6</button>
+            <button class="calc-button function">-</button>
+          </div>
+          <div class="calc-button-row">
+            <button class="calc-button">1</button>
+            <button class="calc-button">2</button>
+            <button class="calc-button">3</button>
+            <button class="calc-button function">&plus;</button>
+          </div>
+          <div class="calc-button-row">
+            <button class="calc-button triple">0</button>
+            <button class="calc-button function">&equals;</button>
+          </div>
+        </section><!-- calc-buttons -->
+      </div><!-- wrapper -->
+    </div><!-- container -->
+    <span class="copyright">&copy; 2024 StrayDog Syndications LLC. All Rights Reserved.</span>
+    <script src="../../../../assets/cdn/fontawesome.js"></script>
+    <script src="../../../../assets/cdn/jquery.min.js"></script>
+    <script src="../../../../assets/cdn/bootstrap.bundle.min.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        });
+    </script>
+  </div>
+</body>
+
+</html>
