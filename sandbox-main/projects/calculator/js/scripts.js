@@ -4,7 +4,7 @@ let previousOperator = null;
 const screen = document.querySelector(".screen");
 
 function buttonClick(value) {
-  if (isNaN(parseInt(value))) {
+  if (isNaN(parseInt(value)) && value !== ".") {
     handleSymbol(value);
   } else {
     handleNumber(value);
@@ -13,6 +13,13 @@ function buttonClick(value) {
 }
 
 function handleNumber(value) {
+  if (value === ".") {
+    // Don't add decimal if already exists
+    if (buffer.includes(".")) {
+      return;
+    }
+  }
+  
   if (buffer === "0") {
     buffer = value;
   } else {
@@ -26,11 +33,11 @@ function handleMath(value) {
     return;
   }
 
-  const intBuffer = parseInt(buffer);
+  const floatBuffer = parseFloat(buffer);
   if (runningTotal === 0) {
-    runningTotal = intBuffer;
+    runningTotal = floatBuffer;
   } else {
-    flushOperation(intBuffer);
+    flushOperation(floatBuffer);
   }
 
   previousOperator = value;
@@ -38,15 +45,32 @@ function handleMath(value) {
   buffer = "0";
 }
 
-function flushOperation(intBuffer) {
+function flushOperation(floatBuffer) {
   if (previousOperator === "+") {
-    runningTotal += intBuffer;
+    runningTotal += floatBuffer;
   } else if (previousOperator === "-") {
-    runningTotal -= intBuffer;
+    runningTotal -= floatBuffer;
   } else if (previousOperator === "×") {
-    runningTotal *= intBuffer;
-  } else {
-    runningTotal /= intBuffer;
+    runningTotal *= floatBuffer;
+  } else if (previousOperator === "÷") {
+    // Check for division by zero
+    if (floatBuffer === 0) {
+      screen.classList.add("error-shake");
+      setTimeout(() => {
+        screen.classList.remove("error-shake");
+      }, 500);
+      buffer = "ERROR";
+      runningTotal = 0;
+      previousOperator = null;
+      rerender();
+      // Reset after showing error
+      setTimeout(() => {
+        buffer = "0";
+        rerender();
+      }, 1500);
+      return;
+    }
+    runningTotal /= floatBuffer;
   }
 }
 
@@ -55,15 +79,16 @@ function handleSymbol(value) {
     case "C":
       buffer = "0";
       runningTotal = 0;
+      previousOperator = null;
       break;
     case "=":
       if (previousOperator === null) {
         // need two numbers to do math
         return;
       }
-      flushOperation(parseInt(buffer));
+      flushOperation(parseFloat(buffer));
       previousOperator = null;
-      buffer = runningTotal;
+      buffer = "" + runningTotal;
       runningTotal = 0;
       break;
     case "←":

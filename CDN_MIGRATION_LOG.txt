@@ -2,8 +2,9 @@ CDN Link Migration Summary
 ===========================
 
 Date: 2025-10-08 18:39:53
+Updated: 2025-10-09 (sandbox-main folder migration)
 
-Total HTML files updated: 17
+Total HTML files updated: 23
 
 CDN Replacements Made:
 ----------------------
@@ -69,6 +70,14 @@ Additionally manually updated earlier:
 - rock-paper-scissors-master/index.html
 - rock-paper-scissors-master/eric-petross-rock-paper-scissors/index.html
 - capstone-project-master/capstone-project-master/prototypes/character/index.html
+
+Updated 2025-10-09 - sandbox-main folder:
+- sandbox-main/index.html
+- sandbox-main/projects/calculator/index.html
+- sandbox-main/projects/rps/index.html
+- sandbox-main/projects/retro-pro/index.html
+- sandbox-main/projects/retro-pro/projects/rps/index.html
+- sandbox-main/projects/resume/index.html
 
 Status: ALL ACTIVE CDN LINKS UPDATED SUCCESSFULLY
 All dead cdn.tlm.cloud links have been replaced with working public CDNs.
