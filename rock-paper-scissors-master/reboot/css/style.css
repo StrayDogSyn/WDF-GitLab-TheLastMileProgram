@@ -152,6 +152,18 @@ hgroup {
   border-radius: 50%;
   max-height: 15%;
   max-width: 15%;
+  position: relative;
+  z-index: 10001;
+  cursor: pointer;
+  }
+#myBrand {
+  position: fixed;
+  bottom: 0;
+  z-index: 10001;
+  pointer-events: auto;
+  }
+#myBrand a {
+  pointer-events: auto;
   }
 .inset {
   position: relative;
