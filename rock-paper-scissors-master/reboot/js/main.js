@@ -219,4 +219,61 @@ function playGame(value) {
     update($feedback, `You lost! \n Better luck next time!`);
     }
   }
+  
+  ///////////////////////////////////
+  //* Easter Egg Functionality 🥚 *//
+  ///////////////////////////////////
+  
+  const easterEggBtn = document.getElementById('easter-egg-btn');
+  const easterEggTooltip = document.getElementById('easter-egg-tooltip');
+  const closeTooltipBtn = document.getElementById('close-tooltip');
+  const dismissTooltipBtn = document.getElementById('dismiss-tooltip');
+  
+  // Check if user has already seen the message
+  const hasSeenMessage = localStorage.getItem('easterEggSeen');
+  
+  // Toggle tooltip visibility
+  function toggleTooltip() {
+    easterEggTooltip.classList.toggle('show');
+    
+    // Change emoji when tooltip is shown
+    if (easterEggTooltip.classList.contains('show')) {
+      easterEggBtn.textContent = '😊';
+      // Mark as seen
+      localStorage.setItem('easterEggSeen', 'true');
+    } else {
+      easterEggBtn.textContent = '😔';
+    }
+  }
+  
+  // Close tooltip
+  function closeTooltip() {
+    easterEggTooltip.classList.remove('show');
+    easterEggBtn.textContent = '😔';
+  }
+  
+  // Event listeners
+  easterEggBtn.addEventListener('click', toggleTooltip);
+  closeTooltipBtn.addEventListener('click', closeTooltip);
+  dismissTooltipBtn.addEventListener('click', closeTooltip);
+  
+  // Close tooltip when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!easterEggBtn.contains(e.target) && 
+        !easterEggTooltip.contains(e.target) && 
+        easterEggTooltip.classList.contains('show')) {
+      closeTooltip();
+    }
+  });
+  
+  // Add subtle hint for first-time visitors
+  if (!hasSeenMessage) {
+    setTimeout(() => {
+      easterEggBtn.style.animation = 'float 3s ease-in-out infinite, pulse 2s ease-in-out infinite, shake 0.5s';
+      setTimeout(() => {
+        easterEggBtn.style.animation = 'float 3s ease-in-out infinite, pulse 2s ease-in-out infinite';
+      }, 500);
+    }, 3000);
+  }
+  
 });
