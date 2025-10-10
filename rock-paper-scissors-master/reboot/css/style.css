@@ -250,8 +250,10 @@ hgroup {
   position: absolute;
   top: 80px;
   left: 0;
-  width: 380px;
-  max-width: calc(100vw - 40px);
+  width: 280px;
+  max-width: 90vw;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -264,6 +266,25 @@ hgroup {
   transform: translateY(-20px) scale(0.9);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   z-index: 10000;
+}
+
+/* Custom scrollbar for tooltip */
+.easter-egg-tooltip::-webkit-scrollbar {
+  width: 8px;
+}
+
+.easter-egg-tooltip::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.easter-egg-tooltip::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.easter-egg-tooltip::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .easter-egg-tooltip.show {
