@@ -73,7 +73,10 @@
     "meae",
     "meliore",
     "causa",
-    "sunt"
+    "sunt",
+    "Spellbook",
+    "pinterest",
+    "fontawesome"
   ],
   "ignorePaths": [
     "node_modules",
