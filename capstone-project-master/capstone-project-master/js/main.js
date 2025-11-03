@@ -83,11 +83,25 @@ $(() => {
   //* Event Listeners *//
   ///////////////////////
 
+  // Login/Enter button handlers
   $('#login-button').on('click', () => {
     $('#splash').hide(), $('#brand-logo').hide(), $('#splash-footer').hide(),
       $('#main-page').show(), $('#Main').show(), $('#exp').show();
     $('html').removeClass('background-page');
   });
+
+  $('#enter-button').on('click', () => {
+    $('#splash').hide(), $('#brand-logo').hide(), $('#splash-footer').hide(),
+      $('#main-page').show(), $('#Main').show(), $('#exp').show();
+    $('html').removeClass('background-page');
+  });
+
+  $('#guest-button').on('click', () => {
+    $('#splash').hide(), $('#brand-logo').hide(), $('#splash-footer').hide(),
+      $('#main-page').show(), $('#Main').show(), $('#exp').show();
+    $('html').removeClass('background-page');
+  });
+
   $('#gridCheck').click(lockEditor);
   $('#btn-feed').on('click', () =>{
     $('#exp').toggle(), $('#feed').toggle(), $('#Main').toggle();
