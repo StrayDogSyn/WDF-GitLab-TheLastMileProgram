@@ -202,10 +202,9 @@ function playGame(value) {
     update($feedback, `You ${result}!!!`);
     $('#play-again').show();
   }
-  function replayGame(value, random) {
-    const player = playerPick();
-    const opponent = computerPick();
+  function replayGame() {
     selectionMade = false;
+    $('#play-again').hide();
     update($feedback, "Choose Again?!");
     update($player, `...`);
     update($opponent, `...`);
