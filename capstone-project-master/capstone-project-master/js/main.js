@@ -13,8 +13,8 @@ $(() => {
   //* DOM References *//
   //////////////////////
 
-  const $splash = document.getElementById('#splash');
-  const $main = document.getElementById('#main-page');
+  const $splash = $('#splash');
+  const $main = $('#main-page');
 
   /////////////////////////////
   //* Default Page Settings *//
