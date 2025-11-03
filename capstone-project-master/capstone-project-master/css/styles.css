@@ -275,3 +275,43 @@ input[type="button"] {
 input[type=checkbox]:checked + #hidden-nav {
   right: 0.5px;
   }
+
+/* Dice Roll Animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.pulse {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Character Editor Enhancements */
+#charClassesTwo,
+#charClassesThree {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-control-plaintext {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  cursor: not-allowed;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Button Hover States */
+#charQuickglanceSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Smooth Transitions */
+#charClassesTwo,
+#charClassesThree {
+  display: none;
+}

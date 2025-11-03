@@ -23,6 +23,123 @@ $(() => {
   $('#main-page').hide();
   $('#splash').show(), $('#brand-logo').show();
   $('#exp').hide(), $('#feed').hide(), $('#Main').hide();
+  $('#charClassesTwo').hide(), $('#charClassesThree').hide();
+
+  /////////////////////////////////
+  //* Character Data Management *//
+  /////////////////////////////////
+
+  // Load character data on page init
+  function loadCharacterData() {
+    const savedCharacter = localStorage.getItem('knucklebonesCharacter');
+    if (savedCharacter) {
+      try {
+        const character = JSON.parse(savedCharacter);
+        // Populate form fields
+        $('#charName').val(character.name || '');
+        $('#charAncestry').val(character.ancestry || '');
+        $('#charHeritage').val(character.heritage || '');
+        $('#charBackground').val(character.background || '');
+        $('#charClassOne').val(character.classOne || '');
+        $('#charLevelOne').val(character.levelOne || 1);
+        $('#charClassTwo').val(character.classTwo || '');
+        $('#charLevelTwo').val(character.levelTwo || 1);
+        $('#charClassThree').val(character.classThree || '');
+        $('#charLevelThree').val(character.levelThree || 1);
+        
+        // Update header display
+        updateCharacterDisplay(character);
+        
+        // Show multi-class fields if needed
+        if (character.classTwo) {
+          $('#charMultiClassAdd').prop('checked', true);
+          $('#charClassesTwo').show();
+        }
+        if (character.classThree) {
+          $('#charMultiClassAdded').prop('checked', true);
+          $('#charClassesThree').show();
+        }
+      } catch (error) {
+        console.error('Error loading character data:', error);
+      }
+    }
+  }
+
+  // Update character display in header
+  function updateCharacterDisplay(character) {
+    const name = character.name || 'Character Name';
+    const level = character.levelOne || '1';
+    const characterClass = character.classOne || 'Class';
+    
+    $('#characterName').text(name);
+    $('#characterLevel').text(level);
+    $('#characterClass').text(characterClass);
+  }
+
+  // Save character data
+  function saveCharacterData() {
+    const character = {
+      name: $('#charName').val(),
+      ancestry: $('#charAncestry').val(),
+      heritage: $('#charHeritage').val(),
+      background: $('#charBackground').val(),
+      classOne: $('#charClassOne').val(),
+      levelOne: $('#charLevelOne').val(),
+      classTwo: $('#charClassTwo').val(),
+      levelTwo: $('#charLevelTwo').val(),
+      classThree: $('#charClassThree').val(),
+      levelThree: $('#charLevelThree').val()
+    };
+    
+    try {
+      localStorage.setItem('knucklebonesCharacter', JSON.stringify(character));
+      updateCharacterDisplay(character);
+      
+      // Show success feedback
+      const $submitBtn = $('#charQuickglanceSubmit');
+      const originalText = $submitBtn.html();
+      $submitBtn.html('<i class="fa fa-check"></i> Saved!');
+      setTimeout(() => {
+        $submitBtn.html(originalText);
+      }, 2000);
+      
+      return true;
+    } catch (error) {
+      console.error('Error saving character data:', error);
+      alert('Error saving character data. Please try again.');
+      return false;
+    }
+  }
+
+  // Validate character form
+  function validateCharacterForm() {
+    const name = $('#charName').val().trim();
+    const classOne = $('#charClassOne').val().trim();
+    const levelOne = $('#charLevelOne').val();
+    
+    if (!name) {
+      alert('Please enter a character name.');
+      $('#charName').focus();
+      return false;
+    }
+    
+    if (!classOne) {
+      alert('Please enter at least one character class.');
+      $('#charClassOne').focus();
+      return false;
+    }
+    
+    if (!levelOne || levelOne < 1 || levelOne > 20) {
+      alert('Please enter a valid level (1-20).');
+      $('#charLevelOne').focus();
+      return false;
+    }
+    
+    return true;
+  }
+
+  // Initialize character data on page load
+  loadCharacterData();
 
   ////////////////
   // Class Dice //
@@ -102,6 +219,43 @@ $(() => {
     $('html').removeClass('background-page');
   });
 
+  // Character form submission
+  $('#charQuickglanceSubmit').on('click', () => {
+    if (validateCharacterForm()) {
+      if (saveCharacterData()) {
+        // Close modal after successful save
+        setTimeout(() => {
+          $('#playerEditorModal').modal('hide');
+        }, 1500);
+      }
+    }
+  });
+
+  // Multi-class checkbox handlers
+  $('#charMultiClassAdd').on('change', function() {
+    if ($(this).is(':checked')) {
+      $('#charClassesTwo').slideDown();
+    } else {
+      $('#charClassesTwo').slideUp();
+      // Clear second class fields
+      $('#charClassTwo').val('');
+      $('#charLevelTwo').val(1);
+      $('#charMultiClassAdded').prop('checked', false);
+      $('#charClassesThree').hide();
+    }
+  });
+
+  $('#charMultiClassAdded').on('change', function() {
+    if ($(this).is(':checked')) {
+      $('#charClassesThree').slideDown();
+    } else {
+      $('#charClassesThree').slideUp();
+      // Clear third class fields
+      $('#charClassThree').val('');
+      $('#charLevelThree').val(1);
+    }
+  });
+
   $('#gridCheck').click(lockEditor);
   $('#btn-feed').on('click', () =>{
     $('#exp').toggle(), $('#feed').toggle(), $('#Main').toggle();
@@ -116,28 +270,48 @@ $(() => {
 
   $('#d4').click(handleRoll4);
     function handleRoll4() {
-    $('#result').text(dFour.roll);
+    const result = dFour.roll;
+    $('#result').text(result);
+    animateDiceRoll(result);
   } // 1d4 //
   $('#d6').click(handleRoll6);
     function handleRoll6() {
-    $('#result').text(dSix.roll);
+    const result = dSix.roll;
+    $('#result').text(result);
+    animateDiceRoll(result);
   } // 1d6 //
   $('#d8').click(handleRoll8);
     function handleRoll8() {
-    $('#result').text(dEight.roll);
+    const result = dEight.roll;
+    $('#result').text(result);
+    animateDiceRoll(result);
   } // 1d8 //
   $('#d10').click(handleRoll10);
     function handleRoll10() {
-    $('#result').text(dTen.roll);
+    const result = dTen.roll;
+    $('#result').text(result);
+    animateDiceRoll(result);
   } // 1d10 //
   $('#d12').click(handleRoll12);
     function handleRoll12() {
-    $('#result').text(dTwelve.roll);
+    const result = dTwelve.roll;
+    $('#result').text(result);
+    animateDiceRoll(result);
   } // 1d12 //
   $('#d20').click(handleRoll20);
     function handleRoll20() {
-    $('#result').text(dTwenty.roll);
+    const result = dTwenty.roll;
+    $('#result').text(result);
+    animateDiceRoll(result);
   } // 1d20 //
+
+  // Dice roll animation
+  function animateDiceRoll(result) {
+    $('#diceResult').addClass('pulse');
+    setTimeout(() => {
+      $('#diceResult').removeClass('pulse');
+    }, 600);
+  }
 
   ///////////////////////
   //* Semantic Events *//
@@ -204,12 +378,31 @@ $(() => {
   function lockEditor() {
     // toggles lock icon open/close //
     $('#lockOpen').toggleClass('fa-lock-open').toggleClass('fa-lock');
-    $('#edit').toggle();
-        /* attr = readonly class="form-control-plaintext" */
-    if($('#gridCheck:checked')){
-      } else {
-        // toggle read-only attribute for editor inputs //
-      }
+    
+    // Get all form inputs in the character editor
+    const $formInputs = $('#characterQuickglance').find('input, select, textarea');
+    
+    if($('#gridCheck').is(':checked')) {
+      // Lock the form - make fields readonly
+      $formInputs.each(function() {
+        if ($(this).attr('type') !== 'checkbox') {
+          $(this).prop('readonly', true);
+          $(this).addClass('form-control-plaintext');
+          $(this).removeClass('form-control');
+        }
+      });
+      $('#charQuickglanceSubmit').prop('disabled', true);
+    } else {
+      // Unlock the form - make fields editable
+      $formInputs.each(function() {
+        if ($(this).attr('type') !== 'checkbox') {
+          $(this).prop('readonly', false);
+          $(this).removeClass('form-control-plaintext');
+          $(this).addClass('form-control');
+        }
+      });
+      $('#charQuickglanceSubmit').prop('disabled', false);
+    }
   }
 
 
